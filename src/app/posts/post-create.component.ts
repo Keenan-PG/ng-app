@@ -6,7 +6,9 @@ import { Component } from '@angular/core'; // importing component feature - dest
   // styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent {
+  newPost = ''; // "global (function)" var to store string
+
   onSubmitPost() {
-    alert('post added');
+    this.newPost = 'The user\'s post'; // manipulating string for output
   }
 }
