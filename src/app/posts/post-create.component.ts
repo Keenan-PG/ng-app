@@ -6,5 +6,7 @@ import { Component } from '@angular/core'; // importing component feature - dest
   // styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent {
-
+  onSubmitPost() {
+    alert('post added');
+  }
 }
