@@ -1,6 +1,11 @@
 <h2>The post Create component</h2>
 
-<textarea rows="6"></textarea>
+<!--
+property binding
+wrap html properties in [] in order to access underlying js object
+takes in code as input
+-->
+<textarea rows="6" [value]="newPost"></textarea>
 <hr>
 <!-- event binding () -->
 <button (click)="onSubmitPost()">Save post</button>
