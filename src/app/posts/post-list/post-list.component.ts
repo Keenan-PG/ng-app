@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core'; // importing component feature - destructured
 
+// using post interface
+import { Post } from '../posts.model';
+
 @Component({ // using component
   selector: 'app-post-list', // html selector
   templateUrl: './post-list.component.html', // html url
@@ -22,5 +25,5 @@ export class PostListComponent {
   //   }
   // ];
 
-  @Input() posts = [];
+  @Input() posts: Post[] = [];
 }

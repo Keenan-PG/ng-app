@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
+// using post interface
+import { Post } from '../posts.model';
+
 @Component({ // using component
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
@@ -11,11 +14,11 @@ export class PostCreateComponent {
   enteredTitle = '';
 
   // output decorator makes event accessible to outside component
-  @Output() postCreated = new EventEmitter(); // creating new event to emit
+  @Output() postCreated = new EventEmitter<Post>(); // creating new event to emit - of type Post
 
   onSubmitPost() {
     // creating post object from submitted post
-    const post = {
+    const post: Post = { // giving type Post to const obj
       title: this.enteredTitle,
       content: this.enteredContent
     };
