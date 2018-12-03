@@ -6,4 +6,19 @@ import { Component } from '@angular/core'; // importing component feature - dest
   styleUrls: ['./post-list.component.css'] // css ref
 })
 
-export class PostListComponent {}
+export class PostListComponent {
+  posts = [
+    {
+      title: 'First post',
+      content: 'First posts content!'
+    },
+    {
+      title: 'Second post',
+      content: 'Second posts content!'
+    },
+    {
+      title: 'Third post',
+      content: 'Third posts content!'
+    }
+  ];
+}
