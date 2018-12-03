@@ -5,11 +5,16 @@ property binding
 wrap html properties in [] in order to access underlying DOM object of html property
 takes in TS code as input
 -->
-
 <!-- local reference (#postInput) -->
-<textarea rows="6" [value]="newPost" #postInput></textarea>
+<!-- <textarea rows="6" [value]="newPost" #postInput></textarea> -->
+
+<!-- replacing both value prop binding and local reference with two-way binding.
+      ng feature: it's a directive - instructions to place upon HTML elements
+    ngModel listens to user input, emits and stores data -->
+
+<textarea rows="6" [(ngModel)]="enteredValue"></textarea>
 <hr>
 <!-- event binding () -->
-<button (click)="onSubmitPost(postInput)">Save post</button>
+<button (click)="onSubmitPost()">Save post</button>
 <!-- string interpolation  -->
 <p>{{ newPost }}</p>
