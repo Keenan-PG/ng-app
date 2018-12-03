@@ -7,12 +7,16 @@
 -->
 
 <!-- using angular directive [()] -->
-<textarea rows="6" [(ngModel)]="enteredValue"></textarea>
 
-<hr>
-
-<!-- event binding () -->
-<button (click)="onSubmitPost()">Save post</button>
-
-<!-- string interpolation {{ }} -->
+<!-- using angular material (mat- elements) -->
+<mat-card>
+  <mat-form-field>
+    <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
+  </mat-form-field>
+  <button
+    color="accent"
+    mat-raised-button (click)="onSubmitPost()">
+    Save post
+  </button>
+</mat-card>
 <p>{{ newPost }}</p>

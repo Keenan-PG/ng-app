@@ -2,8 +2,8 @@ import { Component } from '@angular/core'; // importing component feature - dest
 
 @Component({ // using component
   selector: 'app-post-create', // html selector
-  templateUrl: './post-create.component.html' // html url
-  // styleUrls: ['./post-create.component.css']
+  templateUrl: './post-create.component.html', // html url
+  styleUrls: ['./post-create.component.css'] // css ref
 })
 
 
