@@ -1,5 +1,17 @@
 <app-header></app-header>
 <main>
-  <app-post-create></app-post-create>
-  <app-post-list></app-post-list>
+
+<!--
+  using event binding to call postCreated event - created in post-create
+  one event is fired, call onPostAdded() method from app
+  $event is accessing event data emitted
+-->
+
+  <app-post-create (postCreated)="onPostAdded($event)"></app-post-create>
+
+  <!--
+  using property binding to input app's storedPosts into post-lists posts array.
+  -->
+
+  <app-post-list [posts]="storedPosts"></app-post-list>
 </main>

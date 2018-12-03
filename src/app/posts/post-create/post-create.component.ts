@@ -1,19 +1,25 @@
-import { Component } from '@angular/core'; // importing component feature - destructured
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({ // using component
-  selector: 'app-post-create', // html selector
-  templateUrl: './post-create.component.html', // html url
-  styleUrls: ['./post-create.component.css'] // css ref
+  selector: 'app-post-create',
+  templateUrl: './post-create.component.html',
+  styleUrls: ['./post-create.component.css']
 })
 
-
 export class PostCreateComponent {
-  newPost = 'No Content'; // var to store string
-  enteredValue = '';
+  enteredContent = '';
+  enteredTitle = '';
+
+  // output decorator makes event accessible to outside component
+  @Output() postCreated = new EventEmitter(); // creating new event to emit
 
   onSubmitPost() {
-    // console.dir(postInput); - checking obj props for postInput
-    this.newPost = this.enteredValue; // using obj prop .value to print out user input
+    // creating post object from submitted post
+    const post = {
+      title: this.enteredTitle,
+      content: this.enteredContent
+    };
+    this.postCreated.emit(post); // passing in created object as value to emit
   }
 
 }
