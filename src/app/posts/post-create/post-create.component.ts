@@ -5,6 +5,8 @@ import { Component } from '@angular/core'; // importing component feature - dest
   templateUrl: './post-create.component.html' // html url
   // styleUrls: ['./post-create.component.css']
 })
+
+
 export class PostCreateComponent {
   newPost = 'No Content'; // var to store string
   enteredValue = '';
@@ -13,4 +15,5 @@ export class PostCreateComponent {
     // console.dir(postInput); - checking obj props for postInput
     this.newPost = this.enteredValue; // using obj prop .value to print out user input
   }
+
 }
