@@ -6,9 +6,10 @@ import { Component } from '@angular/core'; // importing component feature - dest
   // styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent {
-  newPost = 'yo'; // "global (function)" var to store string
+  newPost = 'No Content'; // "global (function)" var to store string
 
-  onSubmitPost() {
-    this.newPost = 'The user\'s post'; // manipulating string for output
+  onSubmitPost(postInput: HTMLTextAreaElement) {
+    // console.dir(postInput); - checking obj props for postInput
+    this.newPost = postInput.value; // using obj prop .value to print out user input
   }
 }
