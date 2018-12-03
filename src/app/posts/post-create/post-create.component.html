@@ -9,10 +9,10 @@
 <!-- using angular material (mat- elements) -->
 <mat-card>
   <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredTitle">
+    <input matInput type="text" [(ngModel)]="enteredTitle" placeholder="Enter a Title for your post.">
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
+    <textarea matInput rows="6" [(ngModel)]="enteredContent" placeholder="Enter a post."></textarea>
   </mat-form-field>
   <button color="accent" mat-raised-button (click)="onSubmitPost()">
     Save
