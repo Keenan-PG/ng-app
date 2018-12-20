@@ -5,7 +5,10 @@
 // to use. making data accessible over those components without using bindings everywhere etc.
 
 import { Post } from './posts.model';
+import { Injectable } from '@angular/core';
 
+// injectable makes it so angular only creates one instance of service
+@Injectable({providedIn: 'root'})
 export class PostsService {
   private posts: Post[] = []; // store list of posts (of type Post array)
 
