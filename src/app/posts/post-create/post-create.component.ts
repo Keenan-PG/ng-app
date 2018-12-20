@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 // using post interface
-import { Post } from '../posts.model';
 import { NgForm } from '@angular/forms';
+import { PostsService } from '../posts.service';
 
 @Component({ // using component
   selector: 'app-post-create',
@@ -11,22 +11,19 @@ import { NgForm } from '@angular/forms';
 })
 
 export class PostCreateComponent {
+  // constructor for service
+  constructor(public postsService: PostsService) {}
+
   enteredContent = '';
   enteredTitle = '';
 
-  // output decorator makes event accessible to outside component
-  @Output() postCreated = new EventEmitter<Post>(); // creating new event to emit - of type Post
-
+  // method called on submit
   onSubmitPost(form: NgForm) {
     if (form.invalid) {
       return;
     }
-    // creating post object from submitted post
-    const post: Post = { // giving type Post to const obj
-      title: form.value.title,
-      content: form.value.content
-    };
-    this.postCreated.emit(post); // passing in created object as value to emit
+    // using addPost from service with params from NgForm to make obj and populate posts array
+    this.postsService.addPost(form.value.title, form.value.content);
   }
 
 }

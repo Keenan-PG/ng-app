@@ -15,8 +15,7 @@ import { PostsService } from '../posts.service';
 // OnInit hook (On Initialization -> do this).
 
 export class PostListComponent  implements OnInit {
-  // using @Input decorator to dictate that arr posts of type Posts will be created
-  @Input() posts: Post[] = [];
+  posts: Post[] = [];
 
   // constructor for postsService. with public
   // TS will create postsService property in scope and store incoming value in that
