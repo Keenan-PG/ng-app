@@ -3,6 +3,7 @@
 
 // services are a class which become injectable as dependency for different components
 // to use. making data accessible over those components without using bindings everywhere etc.
+
 import { Post } from './posts.model';
 
 export class PostsService {
