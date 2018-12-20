@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'; // importing component feature - destructured
+import { Component, Input, OnInit } from '@angular/core'; // importing component feature - destructured
 
 // using post interface
 import { Post } from '../posts.model';
@@ -10,26 +10,20 @@ import { PostsService } from '../posts.service';
   styleUrls: ['./post-list.component.css'] // css ref
 })
 
-export class PostListComponent {
-  // posts = [
-  //   {
-  //     title: 'First post',
-  //     content: 'First posts content!'
-  //   },
-  //   {
-  //     title: 'Second post',
-  //     content: 'Second posts content!'
-  //   },
-  //   {
-  //     title: 'Third post',
-  //     content: 'Third posts content!'
-  //   }
-  // ];
+// using part of component lifecycle hook (auto implemented when angualr creates component)
+// use by implementing interface
+// OnInit hook (On Initialization -> do this).
 
+export class PostListComponent  implements OnInit {
+  // using @Input decorator to dictate that arr posts of type Posts will be created
   @Input() posts: Post[] = [];
 
   // constructor for postsService. with public
   // TS will create postsService property in scope and store incoming value in that
   constructor(public postsService: PostsService) {}
 
+  // using OnInit
+  ngOnInit() {
+    this.posts = this.postsService.getPosts(); // getting all posts on initialization of component
+  }
 }
