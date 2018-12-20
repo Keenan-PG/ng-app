@@ -1,22 +1,45 @@
-<!--
-  replaced both value prop binding and local reference with two-way binding.
-  ng feature: it's a directive - instructions to place upon HTML elements
-  ngModel listens to user input, emits and stores data
--->
+<!-- when we use forms module, ng can detect form element which automatically creates obj  -->
 
-<!-- using angular directive [()] -->
+<!-- (event binding) to call function -->
+
+<!-- ngModel with no binding adds form input as directive  -->
 
 <!-- using angular material (mat- elements) -->
+
+<!-- #postForm - local reference. ="ngForm" is accessing angular directive, acesses form obj -->
 <mat-card>
-  <form>
+  <form (submit)="onSubmitPost(postForm)" #postForm="ngForm">
     <mat-form-field>
-      <input matInput type="text" [(ngModel)]="enteredTitle" placeholder="Enter a Title for your post.">
+      <input
+        name="title"
+        #title="ngModel"
+        matInput
+        type="text"
+        ngModel
+        placeholder="Enter a title"
+        required
+      >
+      <mat-error *ngIf="title.invalid">Please enter post title.</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput rows="6" [(ngModel)]="enteredContent" placeholder="Enter a post."></textarea>
+      <textarea
+        name="content"
+        #content="ngModel"
+        matInput
+        rows="6"
+        ngModel
+        placeholder="Enter a post."
+        required
+      >
+      </textarea>
+      <mat-error *ngIf="title.invalid">Please enter post content.</mat-error>
     </mat-form-field>
-    <button color="accent" mat-raised-button (click)="onSubmitPost()">
-      Save
-    </button>
+      <button
+        color="accent"
+        mat-raised-button
+        type="submit"
+      >
+        Save
+      </button>
   </form>
 </mat-card>
