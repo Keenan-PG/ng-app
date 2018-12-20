@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core'; // importing component feature
 
 // using post interface
 import { Post } from '../posts.model';
+import { PostsService } from '../posts.service';
 
 @Component({ // using component
   selector: 'app-post-list', // html selector
@@ -26,4 +27,9 @@ export class PostListComponent {
   // ];
 
   @Input() posts: Post[] = [];
+
+  // constructor for postsService. with public
+  // TS will create postsService property in scope and store incoming value in that
+  constructor(public postsService: PostsService) {}
+
 }
